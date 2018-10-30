@@ -1,3 +1,80 @@
-<p>
-  user-edit works!
-</p>
+<div class = "component">
+    <div>
+      <span class ="page title">User Create</span>
+</div>
+<div class="conatainer form" *ngIf="user">
+  <div class="form-group row">
+    <label class="col-form-label col-sm-2">Username:</label>
+    <div class="col-sm-8">
+      <input [(ngModel)]="user.userName" class="form-control" type="text" name="username"
+        #username="ngModel" required minlength="8">
+    </div>
+    <div *ngIf="username.invalid && username.touched" class="col-form-label col-sm-2 text-danger">
+      <label *ngIf="username?.errors.required">Required</label>
+      <label *ngIf="username?.errors.minlength">8 chars min</label>
+    </div>
+  </div>
+  <div class="form-group row">
+      <label class="col-form-label col-sm-2">Firstname:</label>
+      <div class="col-sm-8">
+        <input [(ngModel)]="user.firstName" class="form-control" type="text" name="firstName"
+          #firstName="ngModel" required minlength="2">
+      </div>
+      <div *ngIf="firstName.invalid && firstName.touched" class="col-form-label col-sm-2 text-danger">
+        <label *ngIf="firstName?.errors.required">Required</label>
+        <label *ngIf="firstName?.errors.minlength">2 chars min</label>
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-2">Lastname:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]="user.lastName" class="form-control" type="text" name="lastName"
+            #lastName="ngModel" required minlength="2">
+        </div>
+        <div *ngIf="lastName.invalid && lastName.touched" class="col-form-label col-sm-2 text-danger">
+          <label *ngIf="lastName?.errors.required">Required</label>
+          <label *ngIf="lastName?.errors.minlength">2 chars min</label>
+        </div>
+      </div>
+      <div class="form-group row">
+          <label class="col-form-label col-sm-2">Phonenumber:</label>
+          <div class="col-sm-8">
+            <input [(ngModel)]="user.phoneNumber" class="form-control" type="text" name="phoneNumber"
+              #phoneNumber="ngModel" required minlength="10">
+          </div>
+          <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="col-form-label col-sm-2 text-danger">
+            <label *ngIf="phoneNumber?.errors.required">Required</label>
+            <label *ngIf="phoneNumber?.errors.minlength">Full 10 digits rqd.</label>
+          </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2">Email:</label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="user.email" class="form-control" type="text" name="email"
+                #email="ngModel" required minlength="5">
+            </div>
+            <div *ngIf="email.invalid && email.touched" class="col-form-label col-sm-2 text-danger">
+              <label *ngIf="email?.errors.required">Required</label>
+              <label *ngIf="email?.errors.minlength">5 chars min</label>
+            </div>
+          </div>
+    <div class="form-group row">
+      <label class="col-form-label col-sm-2">Reviewer:</label>
+      <div class="col-sm-8">
+        <input [(ngModel)]="user.IsReviewer" class="form-control" type="checkbox" name="reviewer"
+        #isreviewer="ngModel">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-form-label col-sm-2">Admin:</label>
+        <div class="col-sm-8">
+          <input [(ngModel)]="user.admin" class="form-control" type="checkbox" name="admin"
+          #admin="ngModel">
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-secondary" (click)="save()">Save User</button>
+      </div>
+  </div>
+  </div>
+ 

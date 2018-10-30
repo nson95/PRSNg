@@ -10,6 +10,7 @@ export class User {
 
     constructor() {
         this.id = 0;
+        this.password = 'password';
         this.reviewer;
         this.admin;
     }
