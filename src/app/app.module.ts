@@ -22,6 +22,10 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { BoolDisplayPipe } from './pipes/bool-display.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { PurchaseRequestListComponent } from './purchase-request/purchase-request-list/purchase-request-list.component';
+import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
+import { PurchaseRequestDetailComponent } from './purchase-request/purchase-request-detail/purchase-request-detail.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,11 @@ import { SortPipe } from './pipes/sort.pipe';
     ProductEditComponent,
     ProductDetailComponent,
     BoolDisplayPipe,
-    SortPipe
+    SortPipe,
+    PurchaseRequestListComponent,
+    PurchaseRequestEditComponent,
+    PurchaseRequestCreateComponent,
+    PurchaseRequestDetailComponent
   ],
   imports: [
     BrowserModule,

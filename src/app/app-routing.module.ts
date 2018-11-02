@@ -17,6 +17,11 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 
+import { PurchaseRequestListComponent } from './purchase-request/purchase-request-list/purchase-request-list.component';
+import { PurchaseRequestDetailComponent } from './purchase-request/purchase-request-detail/purchase-request-detail.component';
+import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
+import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
+
 import { MenuComponent } from './menu/menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -37,6 +42,11 @@ const routes: Routes = [
   { path: 'products/create', component: ProductCreateComponent},
   { path: 'products/detail/:id', component: ProductDetailComponent},
   { path: 'products/edit/:id', component: ProductEditComponent},
+
+  { path: 'requests/list', component: PurchaseRequestListComponent},
+  { path: 'requests/create', component: PurchaseRequestCreateComponent},
+  { path: 'requests/detail/:id', component: PurchaseRequestDetailComponent},
+  { path: 'requests/edit/:id', component: PurchaseRequestEditComponent},
 
   { path: 'home', component: HomeComponent},
   { path: 'about', component: AboutComponent},

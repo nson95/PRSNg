@@ -1,0 +1,17 @@
+<div>
+  <span>Request Detail</span>
+  <p *ngIf='!request'>Retreiving data... this may take a minute...</p>
+  <table class="table table-sm" *ngIf="request">
+    <tr><td>Id:</td><td>{{ request.id }}</td></tr>
+    <tr><td>User:</td><td>{{ request.user.firstName }} {{ request.user.lastName }}</td></tr>
+    <tr><td>Description:</td><td>{{ request.description }}</td></tr>
+    <tr><td>Justification:</td><td>{{ request.justfication }}</td></tr>
+    <tr><td>Total:</td><td>{{ request.total | currency }}</td></tr>
+    <tr><td>Date Needed:</td><td>{{ request.dateNeeded | date}}</td></tr>
+    <tr><td>Submitted Date:</td><td>{{ request.submittedDate | date }}</td></tr>
+    <tr><td>Reason for Rejection:</td><td>{{ request.reasonForRejection }}</td></tr>
+  </table>
+  <div>
+    <button class="btn btn-danger" (click)='delete()'>Delete</button>
+  </div>
+</div>

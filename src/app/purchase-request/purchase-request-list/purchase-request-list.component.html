@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <span>Request List</span>
+    <a routerLink='/requests/create'>Create New</a>
+  </div>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Justification</td>
+        <td>Total</td>
+        <td>Date Needed</td>
+        <td>Submitted Date</td>
+        <td>Action</td>
+      </tr>
+    </thead>
+    <tbody *ngIf='requests'>
+      <tr *ngFor='let request of requests'>
+          <td>{{ request.id }}</td>
+          <td>{{ request.user.firstName }} {{ request.user.lastName }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{ request.justification }}</td>
+          <td>{{ request.total | currency }}</td>
+          <td>{{ request.dateNeeded | date }}</td>
+          <td>{{ request.submittedDate | date }}</td>
+          <td>
+            <a routerLink='/requests/detail/{{ request.id }}'>Detail</a>
+            | <a routerLink='/requests/edit/{{ request.id }}'>Edit</a>
+          </td>
+      </tr>
+  </tbody>
+  </table>
+</div>
