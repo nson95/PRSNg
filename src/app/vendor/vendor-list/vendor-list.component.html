@@ -24,6 +24,7 @@
           <td>{{ vendor.address }} {{ vendor.city }}, {{ vendor.state }}. {{vendor.zip }}</td>
           <td>{{ vendor.phoneNumber }}</td>
           <td>{{ vendor.email }}</td>
+          <td>{{ vendor.isPreapproved | bool }}</td>
           <td>
             <a routerLink='/vendors/detail/{{ vendor.id }}'>Detail</a>
             | <a routerLink='/vendors/edit/{{ vendor.id }}'>Edit</a>

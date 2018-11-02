@@ -20,6 +20,8 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { ProductCreateComponent } from './product/product-create/product-create.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { BoolDisplayPipe } from './pipes/bool-display.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
     ProductListComponent,
     ProductCreateComponent,
     ProductEditComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    BoolDisplayPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

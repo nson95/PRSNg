@@ -7,8 +7,8 @@
     <tr><td>Username:</td><td>{{ user.userName }}</td></tr>
     <tr><td>Email:</td><td>{{ user.email }}</td></tr>
     <tr><td>Phonenumber:</td><td>{{ user.phoneNumber }}</td></tr>
-    <tr><td>Reviewer?</td><td>{{ user.reviewer ? "Yes" : "No" }}</td></tr>
-    <tr><td>Admin?</td><td>{{ user.admin ? "Yes" : "No" }}</td></tr>
+    <tr><td>Reviewer?</td><td>{{ user.reviewer | bool}}</td></tr>
+    <tr><td>Admin?</td><td>{{ user.admin | bool }}</td></tr>
   </table>
   <div>
     <button class="btn btn-danger" (click)='delete()'>Delete</button>

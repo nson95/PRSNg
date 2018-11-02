@@ -8,7 +8,7 @@
     <tr><td>Address:</td><td>{{ vendor.address }} {{ vendor.city }}, {{ vendor.state }}. {{ vendor.zip }}</td></tr>
     <tr><td>Phonenumber:</td><td>{{ vendor.phoneNumber }}</td></tr>
     <tr><td>Email:</td><td>{{ vendor.email }}</td></tr>
-    <tr><td>IsPreapproved?</td><td>{{ vendor.isPreapproved ? "Yes" : "No" }}</td></tr>
+    <tr><td>IsPreapproved?</td><td>{{ vendor.isPreapproved | bool }}</td></tr>
   </table>
   <div>
     <button class="btn btn-danger" (click)='delete()'>Delete</button>
