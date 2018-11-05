@@ -26,6 +26,11 @@ import { PurchaseRequestListComponent } from './purchase-request/purchase-reques
 import { PurchaseRequestEditComponent } from './purchase-request/purchase-request-edit/purchase-request-edit.component';
 import { PurchaseRequestCreateComponent } from './purchase-request/purchase-request-create/purchase-request-create.component';
 import { PurchaseRequestDetailComponent } from './purchase-request/purchase-request-detail/purchase-request-detail.component';
+import { PurchaseRequestLinesComponent } from './purchase-request/purchase-request-lines/purchase-request-lines.component';
+import { LineItemCreateComponent } from './lineItem/line-item-create/line-item-create.component';
+import { LineItemDetailComponent } from './lineItem/line-item-detail/line-item-detail.component';
+import { LineItemEditComponent } from './lineItem/line-item-edit/line-item-edit.component';
+import { LineItemListComponent } from './lineItem/line-item-list/line-item-list.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,12 @@ import { PurchaseRequestDetailComponent } from './purchase-request/purchase-requ
     PurchaseRequestListComponent,
     PurchaseRequestEditComponent,
     PurchaseRequestCreateComponent,
-    PurchaseRequestDetailComponent
+    PurchaseRequestDetailComponent,
+    PurchaseRequestLinesComponent,
+    LineItemCreateComponent,
+    LineItemDetailComponent,
+    LineItemEditComponent,
+    LineItemListComponent
   ],
   imports: [
     BrowserModule,

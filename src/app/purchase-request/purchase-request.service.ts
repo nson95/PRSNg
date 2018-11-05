@@ -25,6 +25,9 @@ export class PurchaseRequestService {
   remove(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
     return this.http.post(url +'Remove', purchaseRequest) as Observable<JsonResponse>
   }
+  lines(id): Observable<JsonResponse> {
+    return this.http.post('http://localhost:8080/LineItems/LinesforPR/', +id) as Observable<JsonResponse>
+  }
   constructor(private http: HttpClient) {
   }
 }

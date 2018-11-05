@@ -21,7 +21,8 @@ export class UserDetailComponent implements OnInit {
     })
   }
 
-  constructor(private usersvc: UserService, 
+  constructor(
+    private usersvc: UserService, 
     private route: ActivatedRoute,
     private router: Router
     ) { }
