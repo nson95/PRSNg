@@ -19,7 +19,6 @@ export class LineItemCreateComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) { }
-
   save(): void {
     this.linesvc.add(this.lineitem)
       .subscribe(resp => {

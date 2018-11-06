@@ -26,9 +26,6 @@ export class ProductEditComponent implements OnInit {
         this.router.navigateByUrl('/products/list');
       });
   }
-  compareFn(v1, v2) {
-    return v1.id===v2.id;
-  }
   ngOnInit() {
     // pulls id out of the get route
     let id = this.route.snapshot.params.id;
@@ -38,11 +35,14 @@ export class ProductEditComponent implements OnInit {
       console.log("resp: ", resp);
       this.product = resp.data;
       this.vendorsvc.list()
-    .subscribe(resp => {
-      console.log("Vendors: ", resp);
-      this.vendors = resp.data;
-    });
+      .subscribe(resp => {
+        console.log("Vendors: ", resp);
+        this.vendors = resp.data;
+      });
     })
   }
+compareFn(v1, v2) {
+return v1.id===v2.id;
+}
 
 }
