@@ -14,11 +14,15 @@
     </table>
     <table class="table table-sm">
       <thead>
-        <tr><td>Product</td><td>Quantity</td><td>Price</td></tr>
+        <tr><td>Product</td><td>Quantity</td><td>Price</td><td>Action</td></tr>
       </thead>
-      <tbody>
+      <tbody *ngIf='lineitems'>
         <tr *ngFor='let lineitem of lineitems'>
           <td>{{ lineitem.product.name }}</td><td>{{ lineitem.quantity }}</td><td>{{ lineitem.product.price }}</td>
+          <td>
+            <a routerLink='/lineitems/detail/{{ lineitem.id }}'>Detail</a>
+          | <a routerLink='/lineitems/edit/{{ lineitem.id }}'>Edit</a>
+        </td>
         </tr>
       </tbody>
     </table>

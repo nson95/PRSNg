@@ -12,7 +12,7 @@ import { PurchaseRequest } from '../../purchase-request/purchase-request.class';
   styleUrls: ['./line-item-list.component.css']
 })
 export class LineItemListComponent implements OnInit {
-  lineItems: LineItem[];
+  lineitems: LineItem[];
   request: PurchaseRequest;
   constructor(
     private linesvc: LineItemService,
@@ -26,7 +26,7 @@ export class LineItemListComponent implements OnInit {
     this.linesvc.getPrli(id)
     .subscribe(resp => {
       console.log("Line Items: ", resp);
-      this.lineItems = resp.data;
+      this.lineitems = resp.data;
     });
     this.prsvc.get(id)
     .subscribe(resp => {
