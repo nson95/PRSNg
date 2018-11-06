@@ -13,10 +13,10 @@ import { PurchaseRequest } from '../../purchase-request/purchase-request.class';
 })
 export class LineItemListComponent implements OnInit {
   lineItems: LineItem[];
-  purchaseRequest: PurchaseRequest;
+  request: PurchaseRequest;
   constructor(
     private linesvc: LineItemService,
-    private prsvc: PurchaseRequestService; 
+    private prsvc: PurchaseRequestService,
     private route: ActivatedRoute,
     private router: Router
    ) { }
@@ -31,7 +31,7 @@ export class LineItemListComponent implements OnInit {
     this.prsvc.get(id)
     .subscribe(resp => {
       console.log("Requests: ", resp);
-      this.purchaseRequest = resp.data;
+      this.request = resp.data;
     })
   }
 
