@@ -13,6 +13,7 @@ import { Product } from '../../product/product.class';
 export class LineItemCreateComponent implements OnInit {
   products: Product[];
   lineitem: LineItem = new LineItem();
+  prid: number;
   constructor(
     private linesvc: LineItemService,
     private productsvc: ProductService,
@@ -20,11 +21,12 @@ export class LineItemCreateComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
   save(): void {
+    this.lineitem.prRequest.id = Number(this.prid);
+    console.log("lineitem:", this.lineitem, ", route:", this.prid);
     this.linesvc.add(this.lineitem)
       .subscribe(resp => {
         console.log("resp:", resp);
-        let id = this.route.snapshot.params.id;
-        this.router.navigateByUrl('/lineitems/list/' +id);
+        this.router.navigateByUrl('/lineitems/lines/'+this.prid);
       });
   }
   ngOnInit() {

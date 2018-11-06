@@ -31,6 +31,7 @@ import { LineItemCreateComponent } from './lineItem/line-item-create/line-item-c
 import { LineItemDetailComponent } from './lineItem/line-item-detail/line-item-detail.component';
 import { LineItemEditComponent } from './lineItem/line-item-edit/line-item-edit.component';
 import { LineItemListComponent } from './lineItem/line-item-list/line-item-list.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { LineItemListComponent } from './lineItem/line-item-list/line-item-list.
     LineItemCreateComponent,
     LineItemDetailComponent,
     LineItemEditComponent,
-    LineItemListComponent
+    LineItemListComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
