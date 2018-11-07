@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseRequestService } from '../purchase-request.service';
 import { PurchaseRequest } from '../purchase-request.class';
+import { User } from '../../user/user.class';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-purchase-request-list',
@@ -9,11 +11,15 @@ import { PurchaseRequest } from '../purchase-request.class';
 })
 export class PurchaseRequestListComponent implements OnInit {
   requests: PurchaseRequest[];
+  user: User;
   constructor(
+    private syssvc: SystemService,
     private requestsvc: PurchaseRequestService
   ) { }
 
   ngOnInit() {
+    this.syssvc.checkForLogin();
+    this.user = this.syssvc.user;
     this.requestsvc.list()
     .subscribe(resp => {
       console.log("Requests: ", resp);

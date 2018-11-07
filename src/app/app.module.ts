@@ -32,6 +32,7 @@ import { LineItemDetailComponent } from './lineItem/line-item-detail/line-item-d
 import { LineItemEditComponent } from './lineItem/line-item-edit/line-item-edit.component';
 import { LineItemListComponent } from './lineItem/line-item-list/line-item-list.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { PurchaseRequestReviewComponent } from './purchase-request/purchase-request-review/purchase-request-review.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
     LineItemDetailComponent,
     LineItemEditComponent,
     LineItemListComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    PurchaseRequestReviewComponent
   ],
   imports: [
     BrowserModule,

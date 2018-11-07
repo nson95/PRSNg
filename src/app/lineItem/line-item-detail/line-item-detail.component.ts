@@ -22,7 +22,7 @@ export class LineItemDetailComponent implements OnInit {
     this.linesvc.remove(this.lineitem)
     .subscribe(resp => {
       console.log("resp: ", resp);
-      this.router.navigateByUrl('/lineitems/list/' +this.lineitem.prRequest.id);
+      this.router.navigateByUrl('/lineitems/list/' +this.lineitem.purchaseRequest.id);
     })
   }
 
@@ -34,5 +34,4 @@ export class LineItemDetailComponent implements OnInit {
       this.lineitem = resp.data;
     })
   }
-
 }
