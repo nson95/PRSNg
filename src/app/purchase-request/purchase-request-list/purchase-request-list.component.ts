@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PurchaseRequestService } from '../purchase-request.service';
 import { PurchaseRequest } from '../purchase-request.class';
 import { User } from '../../user/user.class';
@@ -13,10 +14,20 @@ export class PurchaseRequestListComponent implements OnInit {
   requests: PurchaseRequest[];
   user: User;
   constructor(
+    private router: Router,
     private syssvc: SystemService,
     private requestsvc: PurchaseRequestService
   ) { }
-
+    approve(purchaseRequest: PurchaseRequest) {
+      this.requestsvc.approve(purchaseRequest)
+      .subscribe(res => {
+      })
+      this.router.navigateByUrl('requests/list');
+    }
+    reject(purchaseRequest: PurchaseRequest) {
+      purchaseRequest.reasonForRejection = prompt("Reason For Rejection?");
+      this.requestsvc.reject(purchaseRequest)
+    }
   ngOnInit() {
     this.syssvc.checkForLogin();
     this.user = this.syssvc.user;
@@ -26,5 +37,4 @@ export class PurchaseRequestListComponent implements OnInit {
       this.requests = resp.data;
     });
   }
-
 }
