@@ -4,6 +4,7 @@ import { LineItemService } from '../line-item.service';
 import { LineItem } from '../line-item.class';
 import { ProductService } from '../../product/product.service';
 import { Product } from '../../product/product.class';
+import { PurchaseRequestService } from '../../purchase-request/purchase-request.service';
 
 @Component({
   selector: 'app-line-item-create',
@@ -15,25 +16,32 @@ export class LineItemCreateComponent implements OnInit {
   lineitem: LineItem = new LineItem();
   prid: number;
   constructor(
+    private requestsvc: PurchaseRequestService,
     private linesvc: LineItemService,
     private productsvc: ProductService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
   save(): void {
-    this.lineitem.prRequest.id = Number(this.prid);
     console.log("lineitem:", this.lineitem, ", route:", this.prid);
     this.linesvc.add(this.lineitem)
       .subscribe(resp => {
         console.log("resp:", resp);
-        this.router.navigateByUrl('/lineitems/lines/'+this.prid);
+        this.router.navigateByUrl('/lineitems/list/'+this.prid);
       });
   }
   ngOnInit() {
+    this.prid = this.route.snapshot.params.id;
+    console.log("prid: ", this.prid)
+    this.requestsvc.get(this.prid)
+    .subscribe(resp => {
+      console.log("Purchase Request: ", resp)
+      this.lineitem.purchaseRequest = resp.data;
+    })
     this.productsvc.list()
     .subscribe(resp=> {
       console.log("Products: ", resp);
-      this.products = resp.data;
+      this.products = resp.data;``
     })
   }
 

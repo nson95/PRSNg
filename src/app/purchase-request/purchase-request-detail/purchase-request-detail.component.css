@@ -2,3 +2,7 @@ table {
     width: 70%;
     margin: 0 auto;
 }
+.special {
+    width: 49%;
+    display: inline-block;
+}

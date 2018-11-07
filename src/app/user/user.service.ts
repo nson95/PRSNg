@@ -30,6 +30,5 @@ export class UserService {
     return this.http.post(url +'Login', user) as Observable<JsonResponse>
   }
   constructor(private http: HttpClient) {
-
   }
 }

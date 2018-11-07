@@ -6,6 +6,8 @@ import { User } from '../user/user.class';
   providedIn: 'root'
 })
 export class SystemService {
+  private _baseUrl = 'http://localhost:8080/';
+  get ServerUrl() { return this._baseUrl; }
   _user: User = null;
 
   get user() {

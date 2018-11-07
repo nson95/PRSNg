@@ -12,7 +12,7 @@
         <td>Justification</td>
         <td>Total</td>
         <td>Date Needed</td>
-        <td>Submitted Date</td>
+        <td>Status</td>
         <td>Action</td>
       </tr>
     </thead>
@@ -24,7 +24,7 @@
           <td>{{ request.justification }}</td>
           <td>{{ request.total | currency }}</td>
           <td>{{ request.dateNeeded | date }}</td>
-          <td>{{ request.submittedDate | date }}</td>
+          <td>{{ request.status }}</td>
           <td>
             <a routerLink='/requests/detail/{{ request.id }}'>Detail</a>
             | <a routerLink='/requests/edit/{{ request.id }}'>Edit</a>

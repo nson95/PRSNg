@@ -28,6 +28,9 @@ export class PurchaseRequestService {
   lines(id): Observable<JsonResponse> {
     return this.http.post('http://localhost:8080/LineItems/LinesforPR/', +id) as Observable<JsonResponse>
   }
+  submit(purchaseRequest: PurchaseRequest): Observable<JsonResponse> {
+    return this.http.post(url +'SubmitForReview', purchaseRequest) as Observable<JsonResponse>
+  }
   constructor(private http: HttpClient) {
   }
 }

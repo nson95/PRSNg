@@ -15,7 +15,20 @@ export class PurchaseRequestDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-
+  delete(): void {
+    this.requestsvc.remove(this.request)
+    .subscribe(resp => {
+      console.log("Request: ", resp);
+      this.router.navigateByUrl('/requests/list');
+    })
+  }
+  submit(): void {
+    this.requestsvc.submit(this.request)
+    .subscribe(resp => {
+      console.log("Request: ", resp);
+      this.router.navigateByUrl('/requests/list');
+    })
+  }
   ngOnInit() {
     // pulls id out of the get route
     let id = this.route.snapshot.params.id;
@@ -26,5 +39,4 @@ export class PurchaseRequestDetailComponent implements OnInit {
       this.request = resp.data;
     })
   }
-
 }

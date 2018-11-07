@@ -6,6 +6,7 @@ export class PurchaseRequest {
     justification: string;
     dateNeeded: Date;
     deliveryMode: string;
+    status: string;
     total: number;
     submittedDate: Date;
     reasonForRejection: string;
