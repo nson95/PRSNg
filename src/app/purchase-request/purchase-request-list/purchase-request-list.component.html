@@ -17,7 +17,8 @@
         <td>Date Needed</td>
         <td>Status</td>
         <td>Action</td>
-        <!-- <td *ngIf='user.admin'>Reviewer</td> -->
+        <td *ngIf='user.admin'>Approve</td>
+        <td *ngIf='user.admin'>Reject</td>
       </tr>
     </thead>
     <tbody *ngIf='requests'>
@@ -30,14 +31,16 @@
           <td>{{ request.dateNeeded | date }}</td>
           <td>{{ request.status }}</td>
           <td>
-            <a routerLink='/requests/detail/{{ request.id }}'>Detail</a>
-            | <a routerLink='/requests/edit/{{ request.id }}'>Edit</a>
-            | <a routerLink='/lineitems/list/{{ request.id }}'>Lines</a>
+            <a routerLink='/lineitems/list/{{ request.id }}'>Lines</a>
+            <span *ngIf='this.syssvc.user.id===request.user.id'> | <a routerLink='/requests/detail/{{ request.id }}'>Detail</a> | </span>
+            <span *ngIf='this.syssvc.user.id===request.user.id'><a routerLink='/requests/edit/{{ request.id }}'>Edit</a></span>
           </td>
-          <!-- <td *ngIf='user.admin'>
-            <button (click)='approve()' class='btn btn-primary'>Approve</button>
-            <button (click)='reject()' class='btn btn-danger'>Reject</button>
-          </td> -->
+          <td *ngIf='user.admin'>
+            <button (click)='approve(request)' class='btn btn-success'>Approve</button>
+          </td>
+          <td *ngIf='user.admin'>
+            <button (click)='reject(request)' class='btn btn-danger'>Reject</button>
+          </td>
       </tr>
   </tbody>
   </table>

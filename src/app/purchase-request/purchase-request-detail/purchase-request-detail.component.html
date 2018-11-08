@@ -7,6 +7,7 @@
     <tr><td>Description:</td><td>{{ request.description }}</td></tr>
     <tr><td>Justification:</td><td>{{ request.justfication }}</td></tr>
     <tr><td>Total:</td><td>{{ request.total | currency }}</td></tr>
+    <tr><td>Status:</td><td>{{ request.status }}</td></tr>
     <tr><td>Date Needed:</td><td>{{ request.dateNeeded | date}}</td></tr>
     <tr><td>Submitted Date:</td><td>{{ request.submittedDate | date }}</td></tr>
     <tr *ngIf='request.reasonForRejection'><td>Reason for Rejection:</td><td>{{ request.reasonForRejection }}</td></tr>

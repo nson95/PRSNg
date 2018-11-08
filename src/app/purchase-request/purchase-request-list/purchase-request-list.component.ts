@@ -12,6 +12,7 @@ import { SystemService } from '../../system/system.service';
 })
 export class PurchaseRequestListComponent implements OnInit {
   requests: PurchaseRequest[];
+  msg: string = '';
   user: User;
   constructor(
     private router: Router,
@@ -19,17 +20,18 @@ export class PurchaseRequestListComponent implements OnInit {
     private requestsvc: PurchaseRequestService
   ) { }
     approve(purchaseRequest: PurchaseRequest) {
+      purchaseRequest.reasonForRejection = this.msg;
       this.requestsvc.approve(purchaseRequest)
       .subscribe(res => {
       })
-      this.router.navigateByUrl('requests/list');
+      this.router.navigateByUrl('/home');
     }
     reject(purchaseRequest: PurchaseRequest) {
       purchaseRequest.reasonForRejection = prompt("Reason For Rejection?");
       this.requestsvc.reject(purchaseRequest)
       .subscribe(res => {
       })
-      this.router.navigateByUrl('requests/list');
+      this.router.navigateByUrl('/home');
     }
   ngOnInit() {
     this.syssvc.checkForLogin();
