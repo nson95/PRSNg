@@ -27,6 +27,9 @@ export class PurchaseRequestListComponent implements OnInit {
     reject(purchaseRequest: PurchaseRequest) {
       purchaseRequest.reasonForRejection = prompt("Reason For Rejection?");
       this.requestsvc.reject(purchaseRequest)
+      .subscribe(res => {
+      })
+      this.router.navigateByUrl('requests/list');
     }
   ngOnInit() {
     this.syssvc.checkForLogin();

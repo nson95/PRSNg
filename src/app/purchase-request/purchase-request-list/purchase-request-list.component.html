@@ -3,6 +3,9 @@
     <span>Request List</span>
     <a routerLink='/requests/create'>Create New</a>
   </div>
+  <h1 class="centered">
+  <span>Purchase Requests</span><span  *ngIf="this.syssvc.user.reviewer"> | <a routerLink='/requests/review'>Review</a></span>
+</h1>
   <table class="table table-sm">
     <thead>
       <tr>
@@ -14,7 +17,7 @@
         <td>Date Needed</td>
         <td>Status</td>
         <td>Action</td>
-        <td *ngIf='user.admin'>Reviewer</td>
+        <!-- <td *ngIf='user.admin'>Reviewer</td> -->
       </tr>
     </thead>
     <tbody *ngIf='requests'>
@@ -31,10 +34,10 @@
             | <a routerLink='/requests/edit/{{ request.id }}'>Edit</a>
             | <a routerLink='/lineitems/list/{{ request.id }}'>Lines</a>
           </td>
-          <td *ngIf='user.admin'>
+          <!-- <td *ngIf='user.admin'>
             <button (click)='approve()' class='btn btn-primary'>Approve</button>
             <button (click)='reject()' class='btn btn-danger'>Reject</button>
-          </td>
+          </td> -->
       </tr>
   </tbody>
   </table>

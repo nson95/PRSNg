@@ -9,7 +9,7 @@
     <tr><td>Total:</td><td>{{ request.total | currency }}</td></tr>
     <tr><td>Date Needed:</td><td>{{ request.dateNeeded | date}}</td></tr>
     <tr><td>Submitted Date:</td><td>{{ request.submittedDate | date }}</td></tr>
-    <tr><td>Reason for Rejection:</td><td>{{ request.reasonForRejection }}</td></tr>
+    <tr *ngIf='request.reasonForRejection'><td>Reason for Rejection:</td><td>{{ request.reasonForRejection }}</td></tr>
   </table>
   <div class="special">
     <button class="btn btn-primary" (click)='submit()'>Submit</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PurchaseRequestService } from '../purchase-request.service';
 import { PurchaseRequest } from '../purchase-request.class';
+import { SystemService } from '../../system/system.service';
 
 @Component({
   selector: 'app-purchase-request-detail',
@@ -11,11 +12,22 @@ import { PurchaseRequest } from '../purchase-request.class';
 export class PurchaseRequestDetailComponent implements OnInit {
   request: PurchaseRequest;
   constructor(
+    private syssvc: SystemService,
     private requestsvc: PurchaseRequestService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
+  checkForUser(): void {
+    if (this.syssvc.user!==this.request.user) {
+      alert("You may only delete your own requests.")
+      this.router.navigateByUrl('/requests/list')
+    }
+  }
   delete(): void {
+    if (this.syssvc.user!==this.request.user) {
+      alert("You may only delete your own requests.")
+      this.router.navigateByUrl('/requests/list')
+    } else if (this.syssvc.user==this.request.user)
     this.requestsvc.remove(this.request)
     .subscribe(resp => {
       console.log("Request: ", resp);
