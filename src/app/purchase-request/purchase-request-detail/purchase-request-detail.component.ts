@@ -17,12 +17,6 @@ export class PurchaseRequestDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-  checkForUser(): void {
-    if (this.syssvc.user!==this.request.user) {
-      alert("You may only delete your own requests.")
-      this.router.navigateByUrl('/requests/list')
-    }
-  }
   delete(): void {
     if (this.syssvc.user!==this.request.user) {
       alert("You may only delete your own requests.")
@@ -35,6 +29,10 @@ export class PurchaseRequestDetailComponent implements OnInit {
     })
   }
   submit(): void {
+    if (this.syssvc.user!==this.request.user) {
+      alert("You may only submit your own requests.")
+      this.router.navigateByUrl('/requests/list')
+    } else if (this.syssvc.user==this.request.user)
     this.requestsvc.submit(this.request)
     .subscribe(resp => {
       console.log("Request: ", resp);
