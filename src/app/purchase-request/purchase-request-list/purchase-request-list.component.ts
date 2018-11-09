@@ -20,6 +20,7 @@ export class PurchaseRequestListComponent implements OnInit {
     private requestsvc: PurchaseRequestService
   ) { }
     approve(purchaseRequest: PurchaseRequest) {
+      console.log("Approved")
       purchaseRequest.reasonForRejection = this.msg;
       this.requestsvc.approve(purchaseRequest)
       .subscribe(res => {
@@ -27,6 +28,7 @@ export class PurchaseRequestListComponent implements OnInit {
       this.router.navigateByUrl('/home');
     }
     reject(purchaseRequest: PurchaseRequest) {
+      console.log("Rejected")
       purchaseRequest.reasonForRejection = prompt("Reason For Rejection?");
       this.requestsvc.reject(purchaseRequest)
       .subscribe(res => {

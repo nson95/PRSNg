@@ -3,5 +3,8 @@
   <li *ngFor="let menu of menus">
     <a routerLink='{{menu.route}}' title="{{menu.title}}">{{menu.display}}</a>
   </li>
+    <li *ngFor="let loginMenu of loginMenus" class="nav navbar-nav navbar-right">
+      <a routerLink='{{loginMenu.route}}' title="{{loginMenu.title}}">{{loginMenu.display}}</a>
+    </li>
     </ul>
   </nav>
