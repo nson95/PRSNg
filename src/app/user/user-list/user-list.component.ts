@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
+import { SystemService } from '../../system/system.service';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
@@ -12,7 +13,10 @@ export class UserListComponent implements OnInit {
   users: User[];
 
 
-  constructor(private usersvc: UserService) {
+  constructor(
+    private syssvc: SystemService,
+    private usersvc: UserService
+    ) {
    }
 
   ngOnInit() {
