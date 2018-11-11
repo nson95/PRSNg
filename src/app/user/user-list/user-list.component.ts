@@ -11,7 +11,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 })
 export class UserListComponent implements OnInit {
   users: User[];
-
+  user: User;
 
   constructor(
     private syssvc: SystemService,
@@ -20,6 +20,8 @@ export class UserListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.syssvc.checkForLogin();
+    this.user = this.syssvc.user;
     this.usersvc.list()
     .subscribe(resp => {
       console.log("Users: ", resp);
